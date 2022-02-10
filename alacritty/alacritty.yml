@@ -1,0 +1,54 @@
+# Font configuration (changes require restart)
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: Terminus
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: Terminus
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: Terminus
+    # Style can be specified to pick a specific face.
+    style: Italic
+  size: 9.0
+
+background_opacity: 0.8  # value range is 0 ~ 1
+bell:
+  animation: EaseOutExpo
+  duration: 0
+# Colors (Snazzy)
+# Colors (Pencil Dark)
+# Colors (Panda)
+# Colors (New Moon)
+colors:
+  # Default colors
+  primary:
+    background: '#2D2D2D'
+    foreground: '#B3B9C5'
+  # Normal colors
+  normal:
+    black: '#2D2D2D'
+    red: '#F2777A'
+    green: '#92D192'
+    yellow: '#FFD479'
+    blue: '#6AB0F3'
+    magenta: '#E1A6F2'
+    cyan: '#76D4D6'
+    white: '#B3B9C5'
+  # Bright colors
+  bright:
+    black: '#777C85'
+    red: '#F2777A'
+    green: '#76D4D6'
+    yellow: '#FFEEA6'
+    blue: '#6AB0F3'
+    magenta: '#E1A6F2'
+    cyan: '#76D4D6'
+    white: '#FFFFFF'
