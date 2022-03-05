@@ -2,22 +2,22 @@
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Terminus
+    family: Hack
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: Terminus
+    family: Hack
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Terminus
+    family: Hack
     # Style can be specified to pick a specific face.
     style: Italic
-  size: 9.0
+  size: 8.0
 
 background_opacity: 0.8  # value range is 0 ~ 1
 bell:

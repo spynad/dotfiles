@@ -106,67 +106,6 @@ theme.cal = lain.widget.cal({
     }
 })
 
--- Mail IMAP check
---[[ commented because it needs to be set before use
-theme.mail = lain.widget.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        mail_notification_preset.fg = white
-
-        mail  = ""
-        count = ""
-
-        if mailcount > 0 then
-            mail = "Mail "
-            count = mailcount .. " "
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, mail) .. markup(white, count)))
-    end
-})
---]]
-
--- MPD
---[[ 
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        mpd_notification_preset.fg = white
-
-        artist = mpd_now.artist .. " "
-        title  = mpd_now.title  .. " "
-
-        if mpd_now.state == "pause" then
-            artist = "mpd "
-            title  = "paused "
-        elseif mpd_now.state == "stop" then
-            artist = ""
-            title  = ""
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, artist) .. markup(white, title)))
-    end
-})
-]]--
--- /home fs
---[[ commented because it needs Gio/Glib >= 2.54
-theme.fs = lain.widget.fs({
-    notification_preset = { fg = white, bg = theme.bg_normal, font = "Terminus 10.5" },
-    settings  = function()
-        local fs_header, fs_p = "", ""
-
-        if fs_now["/home"].percentage >= 90 then
-            fs_header = " Hdd "
-            fs_p      = fs_now["/home"].percentage
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, fs_header) .. markup(white, fs_p)))
-    end
-})
---]]
-
 -- CPU widget
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 -- Weather widget
@@ -176,7 +115,6 @@ local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 
 --ALSA text
 local volwidget = lain.widget.alsa({
-    battery = "BAT0",
     settings = function()
         header = "Vol "
         vlevel = volume_now.level
@@ -230,15 +168,6 @@ theme.volume.bar:buttons(my_table.join (
 ))
 local volumebg = wibox.container.background(theme.volume.bar, "#585858", gears.shape.rectangle)
 local volumewidget = wibox.container.margin(volumebg, dpi(7), dpi(7), dpi(5), dpi(5))
-
--- Weather
---[[ to be set before use
-theme.weather = lain.widget.weather({
-    --APPID =
-    city_id = 2643743, -- placeholder (London)
-    notification_preset = { font = theme.font, fg = white }
-})
---]]
 
 -- Separators
 local first = wibox.widget.textbox(markup.font("Terminus 4", " "))
@@ -318,7 +247,8 @@ function theme.at_screen_connect(s)
             spr,
             cpu_widget({
                 width = 70,
-                step_spacing = 2
+                step_spacing = 0,
+		color = '#303030'
             }),
             spr,
             batwidget,
